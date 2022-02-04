@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+Hello
+<ul>
+    {% for worker in workers %}
+    <li>{{ worker }}</li>
+    {% endfor %}
+</ul>
+{% endblock %}
