@@ -1,10 +1,17 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block content %}
-Hello
-<ul>
+<div class="container">
+<h3>Workers</h3>
+<ol>
     {% for worker in workers %}
-    <li>{{ worker }}</li>
+    <li>
+        {{ worker.surname }}, {{ worker.name }} - {{ worker.get_occupation_display }}
+        <form>
+            <button formaction="{% url 'worker-delete' worker_pk=worker.pk %}" type="submit" class="btn btn-danger">Delete</button>
+        </form>
+    </li>
     {% endfor %}
-</ul>
+</ol>
+</div>
 {% endblock %}

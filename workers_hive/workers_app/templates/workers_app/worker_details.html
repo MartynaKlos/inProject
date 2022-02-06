@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<div class="container">
+    <img src="{{ worker.photo.url }}" height="150px" width="120px">
+    <br><br>
+    <h2> {{ worker.surname }}, {{ worker.name }} </h2>
+    <ul>
+        <li>Age: {{ worker.age }} </li>
+        <li>Occupation: {{ worker.get_occupation_display }} </li>
+    </ul>
+</div>
+{% endblock %}
