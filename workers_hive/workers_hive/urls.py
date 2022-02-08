@@ -25,7 +25,8 @@ urlpatterns = [
     path('add-worker/', w_views.WorkerCreate.as_view(), name='worker-create'),
     path('worker/<int:worker_pk>/', w_views.WorkerDetails.as_view(), name='worker-details'),
     path('worker/update/<int:worker_pk>/', w_views.WorkerUpdate.as_view(), name='worker-update'),
-    path('worker/delete/<int:worker_pk>/', w_views.WorkerDelete.as_view(), name='worker-delete')
+    path('worker/delete/<int:worker_pk>/', w_views.WorkerDelete.as_view(), name='worker-delete'),
+    path('report/', w_views.OccupationAgeAvgReport.as_view(), name='age-report')
 ]
 
 if settings.DEBUG:

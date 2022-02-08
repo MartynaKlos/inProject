@@ -4,7 +4,7 @@ from django.urls import reverse_lazy
 from django.views import View
 
 from .forms import AddWorker
-from .models import Worker
+from .models import Worker, OccupationAgeAvg
 
 class WorkersList(ListView):
     template_name = 'workers_app/main.html'
@@ -43,3 +43,9 @@ class WorkerDelete(View):
         worker = Worker.objects.get(pk=kwargs['worker_pk'])
         worker.delete()
         return redirect('workers-list')
+
+
+class OccupationAgeAvgReport(ListView):
+    template_name='workers_app/age_report.html'
+    model = OccupationAgeAvg
+    context_object_name = 'occupations'

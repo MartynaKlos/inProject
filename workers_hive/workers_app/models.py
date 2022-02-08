@@ -15,3 +15,13 @@ class Worker(models.Model):
     age = models.IntegerField()
     occupation = models.IntegerField(choices=OCCUPATIONS)
     photo = models.ImageField(upload_to='photos/', verbose_name='Photo', null=True)
+
+
+class OccupationAgeAvg(models.Model):
+    unique_id = models.IntegerField(primary_key=True)
+    occupation = models.IntegerField()
+    avg_age = models.FloatField()
+
+    class Meta:
+        managed = False
+        db_table = 'report'
