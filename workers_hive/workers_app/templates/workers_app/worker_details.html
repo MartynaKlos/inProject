@@ -2,7 +2,7 @@
 {% load static %}
 {% block content %}
 <div class="container">
-    <img src="{{ worker.photo.url }}" height="150px" width="120px">
+    {% if worker.photo %}<img src="{{ worker.photo.url }}" height="150px" width="120px">{% else %} no photo provided {% endif %}
     <br><br>
     <h2> {{ worker.surname }}, {{ worker.name }} </h2>
     <ul>

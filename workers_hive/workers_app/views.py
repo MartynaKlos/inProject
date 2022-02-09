@@ -22,7 +22,6 @@ class WorkerDetails(DetailView):
 class WorkerCreate(FormView):
     template_name = 'workers_app/add_worker.html'
     form_class = AddWorker
-
     success_url = reverse_lazy('workers-list')
 
     def form_valid(self, form):

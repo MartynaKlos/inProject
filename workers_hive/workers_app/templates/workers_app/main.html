@@ -10,6 +10,9 @@
         <form>
             <button formaction="{% url 'worker-delete' worker_pk=worker.pk %}" type="submit" class="btn btn-danger">Delete</button>
         </form>
+        <form>
+            <button formaction="{% url 'worker-details' worker_pk=worker.pk %}" type="submit" class="btn btn-success">Details</button>
+        </form>
     </li>
     {% endfor %}
 </ol>
