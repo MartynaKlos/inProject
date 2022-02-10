@@ -18,3 +18,35 @@
 </ol>
 </div>
 {% endblock %}
+
+<!-- Code with AJAX
+{% block content %}
+<div class="container">
+<h3>Workers</h3>
+<ol>
+    {% for worker in workers %}
+    <li id="worker_{{ worker.id }}">
+        {{ worker.surname }}, {{ worker.name }} - {{ worker.get_occupation_display }}
+        <form action="{% url worker-delete' worker.pk %}" method="post" id="delete_form_{{ worker.pk }}">
+            <input type="button" onclick="submit_delete({worker.id})" value="Delete" class="btn btn-danger">
+        </form>
+        <form>
+            <button formaction="{% url 'worker-details' worker_pk=worker.pk %}" type="submit" class="btn btn-success">Details</button>
+        </form>
+    </li>
+    {% endfor %}
+</ol>
+</div>
+<script>
+  function submit_delete(id) {
+      $.ajax({
+          type: $('#delete_form_'+id).attr('method'),
+          url: $('#delete_form_'+id).attr('action'),
+          data: $('#delete_form_'+id).serialize(),
+          success: function (data) {
+              $('#worker'+id).remove()
+          }
+      });
+  }
+</script>
+{% endblock %} -->
