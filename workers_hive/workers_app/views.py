@@ -11,13 +11,10 @@ class WorkersList(ListView):
     model = Worker
     context_object_name = 'workers'
 
-
 class WorkerDetails(DetailView):
     template_name = 'workers_app/worker_details.html'
     model = Worker
     pk_url_kwarg = 'worker_pk'
-
-
 
 class WorkerCreate(FormView):
     template_name = 'workers_app/add_worker.html'
@@ -28,7 +25,6 @@ class WorkerCreate(FormView):
         form.save()
         return super().form_valid(form)
 
-
 class WorkerUpdate(UpdateView):
     template_name = 'workers_app/update_worker.html'
     model = Worker
@@ -36,13 +32,11 @@ class WorkerUpdate(UpdateView):
     pk_url_kwarg = 'worker_pk'
     success_url = reverse_lazy('workers-list')
     
-
 class WorkerDelete(View):
     def get(self, request, *args, **kwargs):
         worker = Worker.objects.get(pk=kwargs['worker_pk'])
         worker.delete()
         return redirect('workers-list')
-
 
 class OccupationAgeAvgReport(ListView):
     template_name='workers_app/age_report.html'

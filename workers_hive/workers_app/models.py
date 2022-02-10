@@ -16,7 +16,6 @@ class Worker(models.Model):
     occupation = models.IntegerField(choices=OCCUPATIONS)
     photo = models.ImageField(upload_to='photos/', verbose_name='Photo', null=True)
 
-
 class OccupationAgeAvg(models.Model):
     unique_id = models.IntegerField(primary_key=True)
     occupation = models.IntegerField()
